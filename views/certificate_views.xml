@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Employee Certificate-->
+    <record id="view_certificate_tree" model="ir.ui.view">
+        <field name="name">employee.certificate.tree</field>
+        <field name="model">employee.certificate</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="certificate_name"/>
+                <field name="issued_by"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="status"/>
+                <field name="upload_file"/>
+                <field name="date_diff"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certificate_form" model="ir.ui.view">
+        <field name="name">employee.certificate.form</field>
+        <field name="model">employee.certificate</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="certificate_name"/>
+                        <field name="issued_by"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="status"/>
+                        <field name="upload_file"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_certificate_search" model="ir.ui.view">
+        <field name="name">employee.certificate.search</field>
+        <field name="model">employee.certificate</field>
+        <field name="arch" type="xml">
+            <search string="Certificate">
+                <field name="certificate_name"/>
+                <field name="issued_by"/>
+            </search>
+        </field>
+    </record>
+
+    <!--employee.certificate.name-->
+    <record id="view_certificate_name_tree" model="ir.ui.view">
+        <field name="name">eemployee.certificate.name.tree</field>
+        <field name="model">employee.certificate.name</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certificate_name_form" model="ir.ui.view">
+        <field name="name">employee.certificate.name.form</field>
+        <field name="model">employee.certificate.name</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--employee.certificate.issued-->
+    <record id="view_certificate_issued_tree" model="ir.ui.view">
+        <field name="name">employee.certificate.issued.tree</field>
+        <field name="model">employee.certificate.issued</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certificate_issued_form" model="ir.ui.view">
+        <field name="name">employee.certificate.issued.form</field>
+        <field name="model">employee.certificate.issued</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_employee_certificate" model="ir.actions.act_window">
+        <field name="name">Employee Certificate</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.certificate</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first appointment !
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_certificate_root"
+              name="Certificate"
+              sequence="10"/>
+
+    <menuitem id="menu_certificate_employee"
+              name="Employee Certificate"
+              parent="menu_certificate_root"
+              action="action_employee_certificate"
+              sequence="10"/>
+
+</odoo>
