@@ -47,7 +47,7 @@
         </field>
     </record>
 
-    <!--employee.certificate.name-->
+    <!--Employee certificate name-->
     <record id="view_certificate_name_tree" model="ir.ui.view">
         <field name="name">eemployee.certificate.name.tree</field>
         <field name="model">employee.certificate.name</field>
@@ -72,7 +72,7 @@
         </field>
     </record>
 
-    <!--employee.certificate.issued-->
+    <!--Employee certificate issued-->
     <record id="view_certificate_issued_tree" model="ir.ui.view">
         <field name="name">employee.certificate.issued.tree</field>
         <field name="model">employee.certificate.issued</field>
@@ -104,7 +104,7 @@
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your first appointment !
+                Create your first certificate !
             </p>
         </field>
     </record>
