@@ -2,8 +2,11 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
-class EmployeeQualification(models.Model):
+class InheritCertification(models.Model):
     _inherit = "hr.employee"
+
+    skype_name = fields.Char("Skype name")
+    joining_date = fields.Date("Joining Date")
     certificate_ids = fields.One2many('employee.certificate', 'employees_id', string="Certificate")
 
 
@@ -30,7 +33,7 @@ class EmployeesCertification(models.Model):
             if record.start_date > record.end_date:
                 raise ValidationError('Start date should not greater than end date.')
             else:
-                record.date_diff = record.end_date - record.start_date
+                record.date_diff = (record.end_date - record.start_date).days
 
 
 class CertificationName(models.Model):
