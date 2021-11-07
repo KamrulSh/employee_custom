@@ -14,18 +14,18 @@ class EmployeesCertification(models.Model):
     _name = 'employee.certificate'
     _description = "Employee Certification"
 
-    certificate_name = fields.Many2one('employee.certificate.name', string="Certificate name")
-    issued_by = fields.Many2one('employee.certificate.issued', string="Issued by")
+    certificate_name = fields.Many2one('employee.certificate.name', string="Certificate name", required=True)
+    issued_by = fields.Many2one('employee.certificate.issued', string="Issued by", required=True)
     start_date = fields.Date(string="Start date")
     end_date = fields.Date(string="End date")
-    date_diff = fields.Char(string="Duration")
+    date_diff = fields.Char(string="Duration", readonly=True)
     status = fields.Selection([
         ('complete', 'Complete'),
         ('progress', 'In progress'),
         ('certified', 'Certified')
-    ], tracking=True)
+    ], tracking=True, required=True)
     upload_file = fields.Binary(string="Upload file")
-    employees_id = fields.Many2one('hr.employee', string="Certificate")
+    employee_id = fields.Many2one('hr.employee', string="Certificate")
 
     @api.constrains('start_date', 'end_date')
     def _check_date_validation(self):
