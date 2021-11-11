@@ -25,7 +25,7 @@ class EmployeesCertification(models.Model):
         ('certified', 'Certified')
     ], tracking=True, required=True)
     upload_file = fields.Binary(string="Upload file")
-    employee_id = fields.Many2one('hr.employee', string="Certificate")
+    employees_id = fields.Many2one('hr.employee', string="Certificate")
 
     @api.constrains('start_date', 'end_date')
     def _check_date_validation(self):
